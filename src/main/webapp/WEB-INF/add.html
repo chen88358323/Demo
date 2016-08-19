@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Jquery点击数字增加</title>
+    <script type="text/javascript"
+            src="js/jquery/jquery.min.js"></script>
+
+</head>
+<title>蚂蚁部落</title>
+<style type="text/css">
+    span{
+        color:red;
+        cursor:pointer;
+    }
+</style>
+<script type="text/javascript">
+    $(function(){
+        $("#quantity").keyup(function(){
+            if(isNaN($(this).val())||parseInt($(this).val())<1){
+                $(this).val("1");
+                $("#totalPrice").html($("#price").val());
+                return;
+            }
+            var total=parseFloat($("#price").val())*parseInt($(this).val());
+            $("#totalPrice").html(total.toFixed(2));
+        })
+
+        $("#add").click(function(){
+            numAdd();
+        });
+
+        $("#del").click(function(){
+            numDec();
+        });
+    })
+    /*商品数量+1*/
+    function numAdd(){
+        var num_add = parseInt($("#quantity").val())+1;
+        if($("#quantity").val()==""){
+            num_add = 1;
+        }
+        $("#quantity").val(num_add);
+        var total = parseFloat($("#price").val())*parseInt($("#quantity").val());
+        $("#totalPrice").html(total.toFixed(2));
+    }
+    /*商品数量-1*/
+    function numDec(){
+        var num_dec = parseInt($("#quantity").val())-1;
+        if(num_dec<1){
+            //购买数量必须大于或等于1
+            alert("not lt 1");
+        }
+        else{
+            $("#quantity").val(num_dec);
+            var total = parseFloat($("#price").val())*parseInt($("#quantity").val());
+            $("#totalPrice").html(total.toFixed(2));
+        }
+    }
+</script>
+</head>
+<body>
+<p>
+    数量:<span id="del">-</span>
+    <input type="text" id="quantity" />
+    <span id="add">+</span>
+</p>
+<p class="sdsd">
+    总价格:<span id="totalPrice">28.10</span>
+</p>
+<input type="hidden" value="28.1" id="price" />
+</body>
+</html>

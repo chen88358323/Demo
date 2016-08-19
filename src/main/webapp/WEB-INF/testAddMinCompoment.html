@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Jquery点击数字增加</title>
+    <script type="text/javascript"
+            src="js/jquery/jquery.min.js"></script>
+    <script>
+        //购买的数量加减
+        $(document).ready(function(){
+            $(".buy_less").click(function () {
+                buy_num = parseInt($(this).next(".inptnum").val());
+                if(buy_num < 1) {
+                    return false;
+                } else {
+                    $(this).next(".inptnum").val(buy_num - 1);
+                    price=$(this).parents("tr").find(".price").html();
+                    $(this).parents("tr").find(".total").html(price*(buy_num - 1))
+                }
+            });
+
+            $(".buy_add").click(function () {
+                buy_num = parseInt($(this).prev(".inptnum").val());
+                if (buy_num == 999) {
+                    alert("购买数量不能大于999！");
+                } else {
+                    $(this).prev(".inptnum").val(buy_num + 1);
+                    price=$(this).parents("tr").find(".price").html();
+                    $(this).parents("tr").find(".total").html(price*(buy_num + 1))
+                }
+            });
+        })
+    </script>
+</head>
+
+<body>
+
+<table>
+    <tr><td>测试1</td><td class="price">10</td><td>
+        <a href="#btn" class="buy_less" rel="nofollow">-</a>
+        <input type="text" name="1" id="goods_number_1" value="2" size="4" class="inputBg inptnum" style="text-align:center " onkeydown="showdiv(this)"/>
+        <a href="#btn" class="buy_add" rel="nofollow">+</a></td><td class="total"></td></tr>
+    <tr><td>测试2</td><td class="price">20</td><td>
+        <a href="#btn" class="buy_less" rel="nofollow">-</a>
+        <input type="text" name="2" id="goods_number_2" value="3" size="4" class="inputBg inptnum" style="text-align:center " onkeydown="showdiv(this)"/>
+        <a href="#btn" class="buy_add" rel="nofollow">+</a>
+    </td><td class="total"></td></tr>
+</table>
+
+</body>
+</html>

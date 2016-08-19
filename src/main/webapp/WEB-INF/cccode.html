@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Bootstrap 实例 - 模态框（Modal）插件方法</title>
+   <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<h2>模态框（Modal）插件方法</h2>
+
+<!-- 按钮触发模态框 -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+   开始演示模态框
+</button>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" 
+               aria-hidden="true">×
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               模态框（Modal）标题
+            </h4>
+         </div>
+         <div class="modal-body">
+            <div class ="geofencin">
+					<label class="checkbox-inline" style="float:left;width:120px;height:20px; text-align:right;">
+						定位来源：
+					</label>
+					<label class="checkbox-inline" style="float:left;">
+						<input type="radio" name="areas" id="areas1" value="areasactive" checked>
+						常活跃 
+					</label>
+					<label  class="checkbox-inline" style="float:left;">
+						<input type="radio" name="areas" id="areas2" value="home">
+						家 
+					</label>
+					<label  class="checkbox-inline" style="float:left;">
+						<input type="radio" name="areas" id="areas3" value="company">
+						公司 
+					</label>
+				<div style="clear:both"></div>
+				</div>
+				<div id="coordinate" class="row" style="margin-top:10px">
+					<div class="col-lg-12" id="coordinate_div1">
+						<span style="float:left;width:120px;height:20px; text-align:right;">经纬度：</span>
+						<input type="text" name="coordinate1" id="coordinate1" maxlength="30" style="float:left">
+					</div>
+					<div style="clear:both"></div>
+					<div class="col-lg-12 " id="coordinate_div11"style="margin-top:10px">
+						<span style="float:left;width:120px;height:20px; text-align:right;">辐射半径（米）：</span>
+						<input type="text" style="width:60px" name="radius1" id="radius1" maxlength="10">
+					</div>
+					<div style="float:left;width:120px;height:20px;">
+						<button type="button" id="tab-2-modal_geofencin_btn_add" onClick="addcoordinate();" style="float:right">More</button>
+					</div>
+				</div>
+				<input type="text" name="coordnum" value="1" id="coordnum" hidden >
+
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" 
+               data-dismiss="modal">关闭
+            </button>
+            <button type="button" class="btn btn-primary">
+               提交更改
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+   $(function () { $('#myModal').modal({
+      keyboard: true
+   })});
+</script>
+
+</body>
+</html>			
