@@ -16,7 +16,7 @@ import java.util.Random;
 import org.junit.Before;
 /**
  * Created by chichen.cc on 2015/7/24.
- * test git
+ * test git  test
  */
 public class SpringJDBCTemplateExample {
     private static final String url="jdbc:mysql://10.101.76.98:9999/cctest?useUnicode=true&characterEncoding=UTF-8";
